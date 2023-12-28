@@ -23,14 +23,14 @@ class CallbackTest {
     void shouldTest() {
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Брянск");
-        String planningDate = generateDate (4, "30.12.2023");
+        String planningDate = generateDate (4, "05.01.2024");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME),Keys.DELETE);
         $("[data-test-id=date] input").setValue(planningDate);
         $("[data-test-id=name] input").setValue("Сидоров Иван");
         $("[data-test-id=phone] input").setValue("+79270000000");
         $("[data-test-id=agreement]").click();
         $("button.button").click();
-        $("notification__content")
+        $(".notification__content")
        .shouldBe(Condition.visible, Duration.ofSeconds(15))
                 .shouldHave(Condition.exactText("Встреча успешно забронирована на "+ planningDate));
     }
