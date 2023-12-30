@@ -23,7 +23,7 @@ class CallbackTest {
     void shouldTest() {
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Брянск");
-        String planningDate = generateDate (4, "05.01.2024");
+        String planningDate = generateDate (4, "dd.MM.yyyy");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME),Keys.DELETE);
         $("[data-test-id=date] input").setValue(planningDate);
         $("[data-test-id=name] input").setValue("Сидоров Иван");
